@@ -28,12 +28,6 @@ Requirements:
 - Circe
 - Pureconfig
 
-### Things done:
-
-* basic business logic (line, train and pickup request creation, update status endpoint, retrieve current statuses endpoint and basic scheduling service)
-* unit tests of basic behaviors
-* repository layer implementation
-
 ### Endpoints
 
 - Get all train status
