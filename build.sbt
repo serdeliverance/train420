@@ -1,8 +1,8 @@
 import Dependencies._
 
-ThisBuild / scalaVersion := "2.13.6"
-ThisBuild / version := "0.1.0-SNAPSHOT"
-ThisBuild / organization := "com.trains420"
+ThisBuild / scalaVersion     := "2.13.8"
+ThisBuild / version          := "0.1.0-SNAPSHOT"
+ThisBuild / organization     := "com.trains420"
 ThisBuild / organizationName := "trains420"
 
 lazy val root = (project in file("."))
@@ -10,29 +10,26 @@ lazy val root = (project in file("."))
     name := "trains420"
   )
 
-val http4sVersion = "0.23.4"
-val log4catsVersion = "2.1.1"
-val circeVersion = "0.14.1"
-
 libraryDependencies ++= Seq(
-  "org.typelevel" %% "cats-effect" % "3.2.9",
-  "org.http4s" %% "http4s-dsl" % http4sVersion,
-  "org.http4s" %% "http4s-blaze-server" % http4sVersion,
-  "org.http4s" %% "http4s-circe" % http4sVersion,
-  "io.circe" %% "circe-generic" % circeVersion,
-  "io.circe"     %% "circe-generic-extras" % circeVersion,
-  "eu.timepit" %% "fs2-cron-cron4s" % "0.7.1",
-  "eu.timepit" %% "fs2-cron-calev" % "0.7.1",
-  "com.github.pureconfig" %% "pureconfig" % "0.17.0",
-  // logging
-  "org.typelevel" %% "log4cats-core"    % log4catsVersion,
-  "org.typelevel" %% "log4cats-slf4j"   % log4catsVersion,
-  "ch.qos.logback" % "logback-classic" % "1.2.5",
+  catsEffect,
+  http4sDsl,
+  http4sCirce,
+  // TODO change for ember server
+  http4sBlazeServer,
+  circeGeneric,
+  circeGenericExtras,
+  // TODO review if fs2Cron and fs2CronCalev are really required (maybe CE timer brings the funcitonallity)
+  fs2Cron,
+  fs2CronCalev,
+  pureConfig,
+  log4cats,
+  log4catsSlf4j,
+  logback,
   // testing
-  "org.mockito"            % "mockito-core"        % "3.5.13" % Test,
-  "org.mockito"            %% "mockito-scala"        % "1.16.42" % Test,
-  "org.typelevel" %% "munit-cats-effect-3" % "1.0.6" % Test,
-  scalaTest % Test,
+  mockitoCore     % Test,
+  mockitoScala    % Test,
+  munitCatsEffect % Test,
+  scalaTest       % Test
 )
 
 Test / parallelExecution := false
