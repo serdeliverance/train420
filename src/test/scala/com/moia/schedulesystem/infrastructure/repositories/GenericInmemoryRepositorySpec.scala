@@ -1,4 +1,4 @@
-package com.trains420.schedulesystem.infrastructure.repositories
+package com.trains420.schedulesystem.adapter.out.persistence
 
 import munit.CatsEffectSuite
 
@@ -20,9 +20,7 @@ class GenericInmemoryRepositorySpec extends CatsEffectSuite {
   test("retrieve entities successfully") {
     cleanUp()
 
-    (1 to 3).foreach(
-      i => repository.save(DummyEntity(i, s"name ${i}"))
-    )
+    (1 to 3).foreach(i => repository.save(DummyEntity(i, s"name ${i}")))
 
     repository.getAll.map(entities => assertEquals(entities.length, 3))
   }

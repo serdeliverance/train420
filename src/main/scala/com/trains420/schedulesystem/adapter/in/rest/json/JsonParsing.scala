@@ -1,9 +1,9 @@
-package com.trains420.schedulesystem.infrastructure.json
+package com.trains420.schedulesystem.adapter.in.rest.json
 
 import com.trains420.schedulesystem.domain.entities._
 import io.circe._
 import io.circe.generic.extras.Configuration
-import io.circe.generic.extras.semiauto.{deriveConfiguredDecoder, deriveConfiguredEncoder}
+import io.circe.generic.extras.semiauto.{ deriveConfiguredDecoder, deriveConfiguredEncoder }
 
 object JsonParsing {
 

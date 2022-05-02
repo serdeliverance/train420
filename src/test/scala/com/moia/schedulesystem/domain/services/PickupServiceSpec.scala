@@ -2,8 +2,8 @@ package com.trains420.schedulesystem.domain.services
 
 import cats.effect.IO
 import cats.effect.unsafe.implicits.global
-import com.trains420.schedulesystem.domain.entities.{LineResolver, PickupRequest}
-import com.trains420.schedulesystem.domain.repositories.{LineRepository, PickupQueueRepository, TerminalRepository}
+import com.trains420.schedulesystem.domain.entities.{ LineResolver, PickupRequest }
+import com.trains420.schedulesystem.application.ports.out.{ LineRepository, PickupQueueRepository, TerminalRepository }
 import com.trains420.schedulesystem.stubs.TrainStubs
 import com.trains420.schedulesystem.utils.TestIOUtils
 import org.mockito.MockitoSugar

@@ -1,4 +1,4 @@
-package com.trains420.schedulesystem.adapter.rest
+package com.trains420.schedulesystem.adapter.in.rest
 
 import cats.effect.IO
 import com.trains420.schedulesystem.domain.entities.PickupRequest

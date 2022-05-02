@@ -1,8 +1,8 @@
-package com.trains420.schedulesystem.infrastructure.repositories
+package com.trains420.schedulesystem.adapter.out.persistence
 
 import cats.effect.IO
 import com.trains420.schedulesystem.domain.entities.Terminal
-import com.trains420.schedulesystem.domain.repositories.TerminalRepository
+import com.trains420.schedulesystem.application.ports.out.TerminalRepository
 
 class InmemoryTerminalRepository extends TerminalRepository {
 
@@ -14,7 +14,9 @@ class InmemoryTerminalRepository extends TerminalRepository {
     _.find(_.id == id) match {
       case Some(terminal) => IO.pure(terminal)
       case _ =>
-        IO.raiseError(new IllegalArgumentException(s"Terminal with id: $id does not exists")) // I know it is ugly, but this case will not happen on this challenge
+        IO.raiseError(
+          new IllegalArgumentException(s"Terminal with id: $id does not exists")
+        ) // I know it is ugly, but this case will not happen on this challenge
     }
   }
 }

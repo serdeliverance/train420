@@ -1,6 +1,6 @@
 package com.trains420.schedulesystem.stubs
 
-import com.trains420.schedulesystem.domain.entities.{Finished, Forth, Line, Riding, Terminal, Train, TrainStatus}
+import com.trains420.schedulesystem.domain.entities._
 
 trait TrainStubs {
   val aTrainStatus = TrainStatus(1, 1, 1, 3, Riding, Forth)

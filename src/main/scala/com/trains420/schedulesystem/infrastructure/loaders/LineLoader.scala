@@ -3,18 +3,19 @@ package com.trains420.schedulesystem.infrastructure.loaders
 import cats.effect.IO
 import cats.instances.list._
 import cats.syntax.parallel._
-import com.trains420.schedulesystem.domain.entities.{Line, Train}
-import com.trains420.schedulesystem.domain.repositories.{LineRepository, TrainStatusRepository}
+import com.trains420.schedulesystem.domain.entities.{ Line, Train }
+import com.trains420.schedulesystem.application.ports.out.{ LineRepository, TrainStatusRepository }
 import org.typelevel.log4cats.Logger
 
+// TODO delete or move to another layer
 class LineLoader(lineRepository: LineRepository, trainStatusRepository: TrainStatusRepository) {
 
   def load(linesCount: Int, terminalsCount: Int)(implicit logger: Logger[IO]) =
     logger.info("Loading lines") *>
-    (1 to linesCount)
-      .map(i => loadLine(i, terminalsCount))
-      .toList
-      .parSequence
+      (1 to linesCount)
+        .map(i => loadLine(i, terminalsCount))
+        .toList
+        .parSequence
 
   def loadLine(i: Int, terminalsCount: Int): IO[Line] =
     trainStatusRepository

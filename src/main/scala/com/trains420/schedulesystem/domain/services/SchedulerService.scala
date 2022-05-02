@@ -4,13 +4,13 @@ import cats.effect.IO
 import cats.implicits._
 import com.trains420.schedulesystem.domain.entities.Direction.resolveDirection
 import com.trains420.schedulesystem.domain.entities._
-import com.trains420.schedulesystem.domain.repositories.{LineRepository, PickupQueueRepository}
+import com.trains420.schedulesystem.application.ports.out.{ LineRepository, PickupQueueRepository }
 import org.typelevel.log4cats.Logger
 
 class SchedulerService(
-  lineRepository: LineRepository,
-  pickupRepository: PickupQueueRepository,
-  statusService: TrainStatusService
+    lineRepository: LineRepository,
+    pickupRepository: PickupQueueRepository,
+    statusService: TrainStatusService
 )(implicit logger: Logger[IO]) {
 
   def schedule: IO[List[Line]] =

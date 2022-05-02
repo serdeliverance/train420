@@ -2,7 +2,7 @@ package com.trains420.schedulesystem.domain.services
 
 import cats.effect.IO
 import com.trains420.schedulesystem.domain.entities.TrainStatus
-import com.trains420.schedulesystem.domain.repositories.TrainStatusRepository
+import com.trains420.schedulesystem.application.ports.out.TrainStatusRepository
 import org.typelevel.log4cats.Logger
 
 class TrainStatusService(trainStatusRepository: TrainStatusRepository)(implicit logger: Logger[IO]) {
