@@ -1,10 +1,10 @@
-package com.trains420.schedulesystem.infrastructure.repositories
-
-import cats.effect.IO
-import com.trains420.schedulesystem.domain.entities.{Finished, Forth, TrainStatus}
-import com.trains420.schedulesystem.domain.repositories.TrainStatusRepository
+package com.trains420.schedulesystem.adapter.out.persistence
 
 import java.util.concurrent.atomic.AtomicInteger
+
+import cats.effect.IO
+import com.trains420.schedulesystem.domain.entities.TrainStatus
+import com.trains420.schedulesystem.application.ports.out.TrainStatusRepository
 
 class InmemoryTrainStatusRepository extends TrainStatusRepository {
 
@@ -19,13 +19,12 @@ class InmemoryTrainStatusRepository extends TrainStatusRepository {
   override def save(status: TrainStatus): IO[TrainStatus] = repository.save(status.copy(id = nextId()))
 
   override def getLatestStatuses: IO[List[TrainStatus]] =
-    repository.getAll.map(
-      result =>
-        result
-          .filter(_.id.nonEmpty)
-          .sortBy(_.id)
-          .reverse
-          .distinctBy(_.trainId)
+    repository.getAll.map(result =>
+      result
+        .filter(_.id.nonEmpty)
+        .sortBy(_.id)
+        .reverse
+        .distinctBy(_.trainId)
     )
 
   override def getLastStatusByTrainId(trainId: Int): IO[TrainStatus] =

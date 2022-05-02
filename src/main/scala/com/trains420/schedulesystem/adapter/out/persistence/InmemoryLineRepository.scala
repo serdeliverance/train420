@@ -1,8 +1,8 @@
-package com.trains420.schedulesystem.infrastructure.repositories
+package com.trains420.schedulesystem.adapter.out.persistence
 
 import cats.effect.IO
 import com.trains420.schedulesystem.domain.entities.Line
-import com.trains420.schedulesystem.domain.repositories.LineRepository
+import com.trains420.schedulesystem.application.ports.out.LineRepository
 
 class InmemoryLineRepository extends LineRepository {
 

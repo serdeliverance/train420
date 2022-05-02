@@ -1,15 +1,15 @@
 package com.trains420.schedulesystem.domain.services
 
 import cats.effect.IO
-import com.trains420.schedulesystem.domain.entities.{LineResolver, PickupRequest}
-import com.trains420.schedulesystem.domain.repositories.{LineRepository, PickupQueueRepository, TerminalRepository}
+import com.trains420.schedulesystem.domain.entities.{ LineResolver, PickupRequest }
+import com.trains420.schedulesystem.application.ports.out.{ LineRepository, PickupQueueRepository, TerminalRepository }
 import org.typelevel.log4cats.Logger
 
 class PickupService(
-  terminalRepository: TerminalRepository,
-  lineRepository: LineRepository,
-  pickupRepository: PickupQueueRepository,
-  lineResolver: LineResolver,
+    terminalRepository: TerminalRepository,
+    lineRepository: LineRepository,
+    pickupRepository: PickupQueueRepository,
+    lineResolver: LineResolver
 )(implicit logger: Logger[IO]) {
 
   def registerPickup(request: PickupRequest): IO[PickupRequest] =

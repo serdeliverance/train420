@@ -1,4 +1,4 @@
-package com.trains420.schedulesystem.infrastructure.repositories
+package com.trains420.schedulesystem.adapter.out.persistence
 
 import com.trains420.schedulesystem.domain.entities.PickupRequest
 import com.trains420.schedulesystem.utils.TestIOUtils

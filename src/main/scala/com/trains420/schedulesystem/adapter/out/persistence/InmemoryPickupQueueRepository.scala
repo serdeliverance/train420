@@ -1,12 +1,11 @@
-package com.trains420.schedulesystem.infrastructure.repositories
+package com.trains420.schedulesystem.adapter.out.persistence
+
+import scala.collection.mutable.{ Queue => MQueue }
+import scala.util.Try
 
 import cats.effect.IO
 import com.trains420.schedulesystem.domain.entities.PickupRequest
-import com.trains420.schedulesystem.domain.repositories.PickupQueueRepository
-
-import java.util.concurrent.atomic.AtomicInteger
-import scala.collection.mutable.{Queue => MQueue}
-import scala.util.Try
+import com.trains420.schedulesystem.application.ports.out.PickupQueueRepository
 
 class InmemoryPickupQueueRepository extends PickupQueueRepository {
 

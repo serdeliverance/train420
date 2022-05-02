@@ -5,6 +5,7 @@ import cron4s.Cron
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2._
 
+// TODO delete or move to another layer
 object CronedTaskFactory {
 
   def createCronTask(task: IO[Any], period: String) = {
