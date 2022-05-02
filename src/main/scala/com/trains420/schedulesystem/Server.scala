@@ -1,13 +1,18 @@
 package com.trains420.schedulesystem
 
-import cats.effect.{ExitCode, IO, IOApp}
+import cats.effect.{ ExitCode, IO, IOApp }
 import com.trains420.schedulesystem.domain.entities.MinorDistanceLineResolver
-import com.trains420.schedulesystem.domain.services.{PickupService, SchedulerService, TrainStatusService}
-import com.trains420.schedulesystem.infrastructure.configuration.Configuration.loadConfiguration
+import com.trains420.schedulesystem.domain.services.{ PickupService, SchedulerService, TrainStatusService }
+import com.trains420.schedulesystem.application.config.Config._
 import com.trains420.schedulesystem.infrastructure.jobs.CronedTaskFactory.createCronTask
-import com.trains420.schedulesystem.infrastructure.loaders.{LineLoader, TerminalLoader, TrainStatusLoader}
-import com.trains420.schedulesystem.infrastructure.repositories.{InmemoryLineRepository, InmemoryPickupQueueRepository, InmemoryTerminalRepository, InmemoryTrainStatusRepository}
-import com.trains420.schedulesystem.infrastructure.routes.{PickupRoutes, TrainRoutes}
+import com.trains420.schedulesystem.infrastructure.loaders.{ LineLoader, TerminalLoader, TrainStatusLoader }
+import com.trains420.schedulesystem.infrastructure.repositories.{
+  InmemoryLineRepository,
+  InmemoryPickupQueueRepository,
+  InmemoryTerminalRepository,
+  InmemoryTrainStatusRepository
+}
+import com.trains420.schedulesystem.infrastructure.routes.{ PickupRoutes, TrainRoutes }
 import org.http4s.blaze.server.BlazeServerBuilder
 import org.http4s.server.Router
 import org.typelevel.log4cats.slf4j.Slf4jLogger
