@@ -15,6 +15,7 @@ object Dependencies {
     val scalaTest       = "3.2.12"
     val mockitoCore     = "3.5.13"
     val mockitoScala    = "1.16.42"
+    val organizeImports = "0.6.0"
   }
 
   val catsEffect         = "org.typelevel"         %% "cats-effect"          % V.catsEffect
@@ -26,10 +27,10 @@ object Dependencies {
   val fs2Cron            = "eu.timepit"            %% "fs2-cron-cron4s"      % V.fs2Cron
   val fs2CronCalev       = "eu.timepit"            %% "fs2-cron-calev"       % V.fs2Cron
   val pureConfig         = "com.github.pureconfig" %% "pureconfig"           % V.pureConfig
-  // logging
-  val log4cats      = "org.typelevel" %% "log4cats-core"   % V.log4cats
-  val log4catsSlf4j = "org.typelevel" %% "log4cats-slf4j"  % V.log4cats
-  val logback       = "ch.qos.logback" % "logback-classic" % V.logback
+  val organizeImports    = "com.github.liancheng"  %% "organize-imports"     % V.organizeImports
+  val log4cats           = "org.typelevel"         %% "log4cats-core"        % V.log4cats
+  val log4catsSlf4j      = "org.typelevel"         %% "log4cats-slf4j"       % V.log4cats
+  val logback            = "ch.qos.logback"         % "logback-classic"      % V.logback
   // testing
   val mockitoCore     = "org.mockito"    % "mockito-core"        % V.mockitoCore
   val mockitoScala    = "org.mockito"   %% "mockito-scala"       % V.mockitoScala
