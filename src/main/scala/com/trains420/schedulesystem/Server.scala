@@ -12,7 +12,7 @@ import com.trains420.schedulesystem.infrastructure.repositories.{
   InmemoryTerminalRepository,
   InmemoryTrainStatusRepository
 }
-import com.trains420.schedulesystem.infrastructure.routes.{ PickupRoutes, TrainRoutes }
+import com.trains420.schedulesystem.adapter.rest{ PickupRoutes, TrainRoutes }
 import org.http4s.blaze.server.BlazeServerBuilder
 import org.http4s.server.Router
 import org.typelevel.log4cats.slf4j.Slf4jLogger

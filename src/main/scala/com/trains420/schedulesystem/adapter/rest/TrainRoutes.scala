@@ -1,4 +1,4 @@
-package com.trains420.schedulesystem.infrastructure.routes
+package com.trains420.schedulesystem.adapter.rest
 
 import cats.effect.IO
 import com.trains420.schedulesystem.domain.entities.TrainStatus
@@ -7,7 +7,7 @@ import com.trains420.schedulesystem.infrastructure.json.JsonParsing._
 import io.circe.syntax._
 import org.http4s.circe._
 import org.http4s.dsl.io._
-import org.http4s.{EntityDecoder, HttpRoutes}
+import org.http4s.{ EntityDecoder, HttpRoutes }
 
 class TrainRoutes(trainStatusService: TrainStatusService) {
   implicit val orderDecoder: EntityDecoder[IO, TrainStatus] = jsonOf
